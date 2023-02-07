@@ -35,5 +35,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Chapter07_Class\" />
+    <Folder Include="Chapter08_InterfaceAbstract\" />
+    <Folder Include="Chapter09_Property\" />
+    <Folder Include="Chapter10_ArrayCollectionIndexer\" />
+    <Folder Include="Chapter11_GenericProgramming\" />
+    <Folder Include="Chapter12_Exception\" />
+    <Folder Include="Chapter13_DelegateEvent\" />
+    <Folder Include="Chapter14_Lambda\" />
+    <Folder Include="Chapter15_LINQ\" />
+    <Folder Include="Chapter19_ThreadTask\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

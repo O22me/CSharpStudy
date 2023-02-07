@@ -13,8 +13,7 @@ namespace ThisIsCSharp
         readonly object thisLock;
 
         private int count;
-        public int Count
-        { get { return count; } }
+        public int Count => count;
 
         public Counter()
         {

@@ -27,15 +27,11 @@ namespace CSharpTester
                     Array.Resize<T>(ref array, index + 1);
                     Console.WriteLine($"Array Resized : {array.Length}");
                 }
-
                 array[index] = value;
             }
         }
 
-        public int Length
-        {
-            get { return array.Length; }
-        }
+        public T Current => array[position];
 
         public IEnumerator<T> GetEnumerator()
         {
@@ -43,24 +39,6 @@ namespace CSharpTester
             {
                 yield return (array[i]);
             }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                yield return (array[i]);
-            }
-        }
-        
-        public T Current
-        {
-            get { return array[position]; }
-        }
-
-        object IEnumerator.Current
-        {
-            get { return array[position]; }
         }
 
         public bool MoveNext()
@@ -74,16 +52,27 @@ namespace CSharpTester
             position++;
             return (position < array.Length);
         }
+        
+        public void Reset() => position = -1;
 
-        public void Reset()
+        public int Length => array.Length;
+
+        //일반화가 아닌 컬렉션은 여기부터.
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            position = -1;
+            for (int i = 0; i < array.Length; i++)
+            {
+                yield return (array[i]);
+            }
+        }
+        /*
+         */
+        object IEnumerator.Current
+        {
+            get { return array[position]; }
         }
 
-        public void Dispose() 
-        {
-
-        }
+        public void Dispose() { }
     }
 
     class EnumerableGeneric
