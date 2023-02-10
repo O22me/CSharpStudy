@@ -36,7 +36,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Chapter07_Class\" />
     <Folder Include="Chapter08_InterfaceAbstract\" />
     <Folder Include="Chapter09_Property\" />
     <Folder Include="Chapter10_ArrayCollectionIndexer\" />
@@ -47,10 +46,11 @@
     <Folder Include="Chapter15_LINQ\" />
     <Folder Include="Chapter16_ReflectionAttribute\" />
     <Folder Include="Chapter17_Dynamic\" />
+    <Folder Include="Chapter18_FileIO\" />
     <Folder Include="Chapter19_ThreadTask\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Chapter18_FileIO\BasicIO.cs" />
+    <Compile Include="Chapter07_Class\NestedClass.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
