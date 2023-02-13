@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace ThisIsCSharp
@@ -14,8 +11,7 @@ namespace ThisIsCSharp
         bool lockedCount = false;
 
         private int count;
-        public int Count
-        { get { return count; } }
+        public int Count => count;
 
         public Counter()
         {
@@ -31,7 +27,7 @@ namespace ThisIsCSharp
                 lock (thisLock)
                 {
                     Console.WriteLine("Increase LOCK");
-                    while (count > 0 || lockedCount == true)
+                    while (count > 0 || lockedCount == true)    //Increasse() 함수는 count > 0, count 초기값 0
                         Monitor.Wait(thisLock);
 
                     lockedCount = true;
@@ -51,7 +47,7 @@ namespace ThisIsCSharp
                 lock (thisLock)
                 {
                     Console.WriteLine("Decrease LOCK");
-                    while (count < 0 || lockedCount == true)
+                    while (count < 0 || lockedCount == true)    //Decrease() 함수는 count < 0
                         Monitor.Wait(thisLock);
 
                     lockedCount = true;
@@ -63,6 +59,7 @@ namespace ThisIsCSharp
             }
         }
     }
+    //역시 여러번 보면 이해가 된다니까.
 
     class WaitPulse
     {
