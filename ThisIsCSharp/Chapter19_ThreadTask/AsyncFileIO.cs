@@ -16,8 +16,10 @@ namespace ThisIsCSharp.Chapter19_ThreadTask
                 {
                     byte[] buffer = new byte[1024];
                     int nRead = 0;
+                    //더 이상 읽어오는게 없을때까지 buffer에 쓰기 반복(nRead == 0 이면 읽어온게 없는 것.)
                     while ((nRead = await fromStream.ReadAsync(buffer, 0, buffer.Length)) != 0)
                     {
+                        //buffer에 쓰여있는 만큼 쓰기.
                         await toStream.WriteAsync(buffer, 0, nRead);
                         totalCopied += nRead;
                     }
